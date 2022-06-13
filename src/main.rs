@@ -90,7 +90,7 @@ pub fn reg_new_client(mut stored_accounts: StoredAccounts) {
 }
 
 fn bank_account(mut stored_accounts: StoredAccounts){
-    println!("Please enter account id");
+    println!("Please enter account id type the numbers 1234567 as default account is)");
     print!("account id: ");
     let mut account_id = String::new();
     io::stdin().read_line(&mut account_id).expect("cannot read account input");
@@ -252,7 +252,7 @@ pub fn account_delete(mut stored_accounts: StoredAccounts){
     //let acc = stored_accounts.get_account(account_id);
     stored_accounts.delete_account(account_id);
 
-    
+
 
 }
 
