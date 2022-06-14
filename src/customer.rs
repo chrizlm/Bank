@@ -87,7 +87,10 @@ impl Default for StoredAccounts {
 
 impl StoredAccounts{
     pub fn save_account(&mut self, account: Customer){
+        println!("{:?}", &account);
+
         self.storage.push(account);
+
     }
 
 /*     pub fn index_p(&self, acc_num: u64) -> usize{
@@ -95,10 +98,20 @@ impl StoredAccounts{
         index
     } */
 
+
+
     pub fn get_account(&mut self, acc_num: u64) -> &mut Customer {
         let index = self.storage.iter().position(|x| x.acc_number == acc_num).unwrap();
         let mut account = &mut self.storage[index];
-        
+
+        account
+    }
+
+
+    pub fn get_account2(&mut self, acc_num: u64) -> &Customer {
+        let index = self.storage.iter().position(|x| x.acc_number == acc_num).unwrap();
+        let mut account = &self.storage[index];
+
         account
     }
 
