@@ -1,10 +1,10 @@
 #[derive(Debug)]
 pub struct Customer{
     pub(crate) name: String,
-    national_id: u64,
+    pub(crate) national_id: u64,
     pub(crate) acc_number: u64,
-    email: String,
-    amount: f64
+    pub(crate) email: String,
+    pub(crate) amount: f64
 }
 
 const DEFAULT_NAME: &str = "new_customer";
@@ -69,7 +69,7 @@ impl Customer{
 
 
 pub struct StoredAccounts{
-    storage: Vec<Customer>
+    pub(crate) storage: Vec<Customer>
 }
 
 //const DEFAULT_CUSTOMER: Customer = Customer::default();

@@ -348,3 +348,44 @@ fn main() {
     }
 }*/
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+    }
+
+    #[test]
+    fn register_client(){
+        let mut new_client = Customer{
+            name: "chris".to_string(),
+            national_id: 1234,
+            acc_number: 12345,
+            email: "clm@gmail".to_string(),
+            amount: 20000.0
+        };
+
+        let mut store = StoredAccounts{
+            storage: vec![]
+        };
+
+        store.storage.push(new_client);
+        let test_client = Customer{
+            name: "chris".to_string(),
+            national_id: 1234,
+            acc_number: 12345,
+            email: "clm@gmail".to_string(),
+            amount: 20000.0
+        };
+        let mut store2 = StoredAccounts{
+            storage: vec![]
+        };
+        store2.storage.push(test_client);
+
+        assert_eq!(store.get_account(12345), store2.get_account(12345));
+    }
+}
+
